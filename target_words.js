@@ -3,6 +3,7 @@
 const target_words = new Set([
   "ni",
   "peng",
-  "neee-wom",
+  "neee",
+  "wom",
   "it",
 ]);
