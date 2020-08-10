@@ -16,7 +16,7 @@ function highlight_words(text){
   var text_out= "";
   var words = text.split(/\b/);
   for(var i = 0; i < words.length; i++) {
-    if(target_words.has(words[i])) {  // from target_words.js
+    if(target_words.has(words[i].toLowerCase())) {  // from target_words.js
       text_out = text_out + `<span class="highlighted">${words[i]}</span>`;
     }
     else {
