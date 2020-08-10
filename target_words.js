@@ -1,7 +1,8 @@
 // set of target words for texthighlight.js
 
 const target_words = new Set([
-  "logic",
-  "objectivity",
-  "truth",
+  "ni",
+  "peng",
+  "neee-wom",
+  "it",
 ]);
