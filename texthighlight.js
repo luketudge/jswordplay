@@ -5,18 +5,20 @@ var input_selector = "input[name='textinput']";
 var result_selector = "p[id='result']";
 
 
-// text manipulation function(s)
-// write new string processing functions here to try them out
+// word checking function
 
-function identity(text){
-  return text;
+function is_target_word(word){
+  return target_words.has(word.toLowerCase());  // from target_words.js
 }
 
-function highlight_words(text){
+
+// word highlighting function
+
+function highlight_words(text, func){
   var text_out = "";
   var words = text.split(/\b/);
   for(var i = 0; i < words.length; i++) {
-    if(target_words.has(words[i].toLowerCase())) {  // from target_words.js
+    if(func(words[i])) {
       text_out = text_out + `<span class="highlighted">${words[i]}</span>`;
     }
     else {
@@ -27,14 +29,11 @@ function highlight_words(text){
 }
 
 
-// attach a function to the HTML text field
-// can choose a function from among those defined above
-
-var func_da_wunc = highlight_words;
+// attach the functions to the HTML text field
 
 $(input_selector).on("keyup", function () {
   var content = $(input_selector).val();
-  var result = func_da_wunc(content);
+  var result = highlight_words(content, is_target_word);  // the functions defined above
   $(result_selector).html(result);
   console.log(`${content} -> ${result}`);
 });
